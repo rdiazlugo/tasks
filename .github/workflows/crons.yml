@@ -1,0 +1,14 @@
+name: Runs cronjobs
+
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  sayHi:
+    runs-on: self-hosted
+    steps:
+      - run: echo "✨ Running job"
+      - name: Checkout latest code
+        uses: actions/checkout@v2
+      - run: echo "🖥 Current status ${{ job.status }}"
